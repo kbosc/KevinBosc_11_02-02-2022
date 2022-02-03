@@ -10,6 +10,7 @@ width: inherit;
 const ContainerHeader = styled.header`
 display: flex;
 justify-content: space-between;
+margin: 2rem 5rem;
 `
 const NavBar = styled.nav`
 width: 20%
@@ -19,6 +20,7 @@ width: 20%
 `
 const linkStyle = {  
     color: colors.primary,
+    textDecoration: "none",
   };
   
 export default function Header(props) {
