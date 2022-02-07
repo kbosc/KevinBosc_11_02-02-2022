@@ -13,25 +13,45 @@ justify-content: space-between;
 margin: 2rem 5rem;
 `
 const NavBar = styled.nav`
-width: 20%
-// display: flex
-// justify-content: space-between;
+width: 20%;
+font-weight: 500;
+font-size: 24px;
+display: flex;
+justify-content: space-between;
 // color: ${colors.primary};
 `
-const linkStyle = {  
-    color: colors.primary,
-    textDecoration: "none",
-  };
+
+  const LinkWithActive = styled(Link)`
+  color: ${colors.primary};
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+  &:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: ${colors.primary};
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  &:hover:after { 
+    width: 100%; 
+    left: 0; 
+  `
   
 export default function Header(props) {
     return (
         <ContainerHeader>
             <LogoKasa src={Logo} alt="Logo Kasa" />
             <NavBar>
-                <Link to="/" style={linkStyle}>Accueil</Link>
-                <Link to="/about" style={linkStyle}>A Propos</Link>
+                <LinkWithActive to="/" >Accueil</LinkWithActive>
+                <LinkWithActive to="/about" >A Propos</LinkWithActive>
             </NavBar>
         </ContainerHeader>
     );
 }
-

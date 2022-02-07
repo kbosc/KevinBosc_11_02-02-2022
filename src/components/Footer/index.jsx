@@ -8,7 +8,7 @@ position: relative;
 height: 209px;
 background-color: black;
 color: white;
-margin: 2rem 5rem;
+margin: 0 5rem;
 display: flex;
 flex-direction: column;
 align-items: center;
