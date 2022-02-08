@@ -13,6 +13,15 @@ object-fit: cover;
 width: 100%;
 height: 223px;
 `
+const DropdownContainer = styled.div`
+width: 80%;
+margin: 0 auto;
+-webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+`
 
 export default function About(props) {
     
@@ -21,13 +30,15 @@ export default function About(props) {
             <HeroHeader>
                 <BannerImg src={AboutImg} alt="paysage brumeux de montagne" />
             </HeroHeader>
-            {dataAbout.map((content, index) => (
-                <Dropdown 
-                    key={`${content.title}-${index}`}
-                    title={content.title}
-                    text={content.text}
-                />
-            ))}        
+            <DropdownContainer >
+                {dataAbout.map((content, index) => (
+                    <Dropdown 
+                        key={`${content.title}-${index}`}
+                        title={content.title}
+                        text={content.text}
+                    />
+                ))}        
+            </DropdownContainer>
         </div>
     );
 }

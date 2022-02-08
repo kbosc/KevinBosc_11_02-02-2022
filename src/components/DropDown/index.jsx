@@ -6,8 +6,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types'
 
 const DropdownContainer = styled.div`
-width: 80%;
-margin: 2rem auto;
+margin: 2rem 0;
 -webkit-transition: all 500ms ease;
 -moz-transition: all 500ms ease;
 -ms-transition: all 500ms ease;
@@ -64,7 +63,6 @@ export default function Dropdown({title, text}) {
     return (
         <div>
             <DropdownContainer >
-
                 <DropdownTitle onClick={() => setIsOpen(!isOpen)} >
                 {title}
                     {isOpen? (

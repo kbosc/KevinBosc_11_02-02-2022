@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Card from "../../components/Card"
 import { useFetch } from '../../utils/hooks'
 // import { datas } from '../../utils/datas/data.json'
-// import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import colors from "../../utils/style/colors";
 
 
@@ -48,9 +48,9 @@ export default function Home(props) {
         `http://localhost:3000/data.json`
       )
   if (error) {
-    return <span>Oups il y a eu un problème</span>
+    return <span>Oups, il y a une erreur</span>
   }
-  console.log(data);
+  // console.log(data);
     return (
         <div>
             <HeroHeader>
@@ -62,12 +62,14 @@ export default function Home(props) {
 			) : (
             <CardContainer>
             {data.map((data, index) => (
+              <Link to={`/housing/${data.id}`} key={`${data.id}-${index}`}>
             <Card
               key={`${data.title}-${index}`}
               label={data.description}
               title={data.title}
               picture={data.pictures[0]}
-            />
+              />
+              </Link>
           ))}
             </CardContainer>
 			)}
