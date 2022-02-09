@@ -37,7 +37,7 @@ color: white
 
 export default function Card({ label, title, picture }) {
     return (
-      <CardWrapper onClick={() => console.log("click card")}>
+      <CardWrapper>
         <CardImg src={picture} alt={label} />
         <CardTitle >{title}</CardTitle>
       </CardWrapper>

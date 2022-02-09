@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Chevron from "../../assets/chevron.svg"
 import colors from "../../utils/style/colors";
 import { useState } from 'react';
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 const DropdownContainer = styled.div`
 margin: 2rem 0;
@@ -72,7 +72,7 @@ export default function Dropdown({title, text}) {
                     )}
                 </DropdownTitle>
                 {isOpen && (
-                <DropdownText className='textContent'>
+                <DropdownText>
                     {text}
                 </DropdownText>
                 )}
@@ -81,10 +81,10 @@ export default function Dropdown({title, text}) {
     );
 }
 
-Dropdown.propTypes = {
-    title: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-  }
+// Dropdown.propTypes = {
+//     title: PropTypes.string.isRequired,
+//     text: PropTypes.string.isRequired,
+//   }
   
   Dropdown.defaultProps = {
       title: 'Titre',

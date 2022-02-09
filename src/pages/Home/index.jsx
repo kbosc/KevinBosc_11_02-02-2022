@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Card from "../../components/Card"
 import { useFetch } from '../../utils/hooks'
 // import { datas } from '../../utils/datas/data.json'
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import colors from "../../utils/style/colors";
 
 
@@ -40,7 +40,7 @@ max-width: 100%;
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 grid-gap: 10px;
-justify-content: center;
+justify-items: center;
 `
 
 export default function Home(props) {
@@ -76,5 +76,3 @@ export default function Home(props) {
         </div>
     );
 }
-				// <Link key={e.id} to={/accomodations/${e.id}}>
-				// </Link>
