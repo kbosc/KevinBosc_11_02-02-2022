@@ -67,7 +67,7 @@ export default function Home(props) {
               key={`${data.title}-${index}`}
               label={data.description}
               title={data.title}
-              picture={data.pictures[0]}
+              cover={data.cover}
               />
               </Link>
           ))}

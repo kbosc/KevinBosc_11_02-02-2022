@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import  Logo  from "../../assets/Logo.svg"
+// import  Logo  from "../../assets/Logo.svg"
 import styled from 'styled-components'
 import colors from "../../utils/style/colors";
+import { ReactComponent as Logo } from "../../assets/Logo.svg";
 
-const LogoKasa = styled.img`
-height: 68px;
-width: inherit;
-`
+// const LogoKasa = styled.img`
+// height: 68px;
+// width: inherit;
+// `
 const ContainerHeader = styled.header`
 display: flex;
 justify-content: space-between;
@@ -47,11 +48,12 @@ justify-content: space-between;
 export default function Header(props) {
     return (
         <ContainerHeader>
-            <LogoKasa src={Logo} alt="Logo Kasa" />
-            <NavBar>
-                <LinkWithActive to="/" >Accueil</LinkWithActive>
-                <LinkWithActive to="/about" >A Propos</LinkWithActive>
-            </NavBar>
+          <Logo width="210px" fill={colors.primary} stroke={colors.primary}/>
+          {/* <LogoKasa src={Logo} alt="Logo Kasa" /> */}
+          <NavBar>
+            <LinkWithActive to="/" >Accueil</LinkWithActive>
+            <LinkWithActive to="/about" >A Propos</LinkWithActive>
+          </NavBar>
         </ContainerHeader>
     );
 }

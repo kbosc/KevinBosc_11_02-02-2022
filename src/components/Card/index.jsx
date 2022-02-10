@@ -35,10 +35,10 @@ color: white
 //     height: "340px",
 //   };
 
-export default function Card({ label, title, picture }) {
+export default function Card({ label, title, cover }) {
     return (
       <CardWrapper>
-        <CardImg src={picture} alt={label} />
+        <CardImg src={cover} alt={label} />
         <CardTitle >{title}</CardTitle>
       </CardWrapper>
     )
@@ -47,11 +47,11 @@ export default function Card({ label, title, picture }) {
   Card.propTypes = {
     label: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
+    cover: PropTypes.string.isRequired,
   }
   
   Card.defaultProps = {
     label: '',
     title: '',
-    picture: DefaultPicture,
+    cover: DefaultPicture,
   }

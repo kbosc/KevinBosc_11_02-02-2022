@@ -11,7 +11,7 @@ flex-direction: row;
 justify-content: space-between;
     `
 const HousingHeaderLeft = styled.div`
-    
+  
     `
 const HousingTitle = styled.h2`
 font-size: 36px;

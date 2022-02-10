@@ -29,27 +29,24 @@ export default function Housing(props) {
     } 
     return (
         <div>
-            {console.log(data)}
-            
+            {console.log(data)}        
             {data.map((datas, index) => 
                 (datas.id === housingId.id &&
-                    <Carousel 
-                    key={`${datas.cover}-${index}`}
-                    pictures={datas.pictures}
-                    />
-            ))}
-            {data.map((datas, index) => 
-                (datas.id === housingId.id &&
-                <Sheet
-                    key={`${datas.title}-${index}`}
-                    title={datas.title}
-                    location={datas.location}
-                    host={datas.host}
-                    tags={datas.tags.map(tag => <li>{tag}</li>)}
-                    ratings={datas.rating}
-                    descriptions={datas.description}
-                    equipments={datas.equipments.map(equipment => <li>{equipment}</li>)}
-                />         
+                    <div
+                    key={`${datas.title}-${index}`}>
+                        <Carousel 
+                        pictures={datas.pictures}
+                        />
+                        <Sheet
+                            title={datas.title}
+                            location={datas.location}
+                            host={datas.host}
+                            tags={datas.tags.map(tag => <li key={`${tag}-${index}`}>{tag}</li>)}
+                            ratings={datas.rating}
+                            descriptions={datas.description}
+                            equipments={datas.equipments.map(equipment => <li key={`${equipment}-${index}`}>{equipment}</li>)}
+                        />         
+                    </div>
                 ))}
         </div>
     )      
