@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components'
-import Chevron from "../../assets/chevron.svg"
+// import Chevron from "../../assets/chevron.svg"
 import colors from "../../utils/style/colors";
 import { useState } from 'react';
-// import PropTypes from 'prop-types'
+import { ReactComponent as Chevron } from '../../assets/chevron.svg';
 
 const DropdownContainer = styled.div`
 margin: 2rem 0;
@@ -27,25 +27,24 @@ line-height: 34px;
 letter-spacing: 0em;
 text-align: left;
 border-radius: 5px;
-& img {
-} 
+align-items: center;
 `
-const DropdownImg = styled.img`
--webkit-transform: rotate(-180deg);
--moz-transform: rotate(-180deg);
--ms-transform: rotate(-180deg);
--o-transform: rotate(-180deg);
-transform: rotate(-180deg);
-`
+// const DropdownImg = styled.img`
+// -webkit-transform: rotate(-180deg);
+// -moz-transform: rotate(-180deg);
+// -ms-transform: rotate(-180deg);
+// -o-transform: rotate(-180deg);
+// transform: rotate(-180deg);
+// `
 const DropdownText = styled.div`
-    padding: 2rem;
-    margin-top: 0px;
-    overflow: hidden;
     -webkit-transition: all 500ms ease;
     -moz-transition: all 500ms ease;
     -ms-transition: all 500ms ease;
     -o-transition: all 500ms ease;
     transition: all 500ms ease;
+    padding: 2rem;
+    margin-top: 0px;
+    overflow: hidden;
     background: ${colors.secondary};
     color: ${colors.primary};
     font-size: 24px;
@@ -56,23 +55,47 @@ const DropdownText = styled.div`
     text-align: left;
     border-radius: 0 0 5px 5px;
 `
-
 export default function Dropdown({title, text}) {
     const [isOpen, setIsOpen] = useState(false)
-
+    const styledChevron = {
+        transform: isOpen ? 'rotate(180deg)' : '', 
+        transition: 'transform 300ms ease',
+        fill: "white",
+        top: "10px",
+       }
+    const smoothTransition = {
+        // fontSize: !isOpen ? "24px" : "0px", 
+        // height: !isOpen ? "max-content" : "0px", 
+        transition: "all 1500ms ease",
+        padding: "2rem",
+        marginTop: "0px",
+        overflow: "hidden",
+        background: Object.values(colors.secondary),
+        color: Object.values(colors.primary),
+        fontSize: "24px",
+        fontStyle: "normal",
+        fontWeight: "400",
+        lineHeight: "34px",
+        letterSpacing: "0em",
+        textAlign: "left",
+        borderRadius: "0 0 5px 5px",
+    }
+    
     return (
         <div>
             <DropdownContainer >
                 <DropdownTitle onClick={() => setIsOpen(!isOpen)} >
                 {title}
                     {isOpen? (
-                        <img src={Chevron} alt="Chevron"/>
-                    ) : (
-                        <DropdownImg src={Chevron} alt="Chevron" />
+                        // <img src={Chevron} alt="Chevron"/>
+                        <Chevron style={styledChevron}/>
+                        ) : (
+                        <Chevron style={styledChevron} />
+                        // <DropdownImg src={Chevron} alt="Chevron" />
                     )}
                 </DropdownTitle>
                 {isOpen && (
-                <DropdownText>
+                <DropdownText style={smoothTransition}>
                     {text}
                 </DropdownText>
                 )}

@@ -1,7 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { useFetch } from '../../utils/hooks'
 import Carousel from "../Carousel";
 import Sheet from "../Sheet";
+// import { useNavigate } from 'react-router-dom';
+
 // import colors from "../../utils/style/colors";
 // import styled from 'styled-components'
 
@@ -15,6 +17,10 @@ import Sheet from "../Sheet";
 // `
 export default function Housing(props) {
     const housingId = useParams()
+    if (!housingId) {
+        // navigate('/*');
+        <Navigate to="/*" replace={true} />
+      }
     // console.log(housingId.id);
     // const housingIdString = JSON.stringify(housingId.id)
     // console.log(housingIdString);
@@ -35,6 +41,7 @@ export default function Housing(props) {
                     <div
                     key={`${datas.title}-${index}`}>
                         <Carousel 
+                        cover={datas.cover}
                         pictures={datas.pictures}
                         />
                         <Sheet
