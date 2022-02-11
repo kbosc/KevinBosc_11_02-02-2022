@@ -1,17 +1,12 @@
 import React from 'react';
 import styled from 'styled-components'
-// import Chevron from "../../assets/chevron.svg"
 import colors from "../../utils/style/colors";
 import { useState } from 'react';
 import { ReactComponent as Chevron } from '../../assets/chevron.svg';
 
 const DropdownContainer = styled.div`
 margin: 2rem 0;
--webkit-transition: all 500ms ease;
--moz-transition: all 500ms ease;
--ms-transition: all 500ms ease;
--o-transition: all 500ms ease;
-transition: all 500ms ease;
+
 `
 const DropdownTitle = styled.h3`
 cursor: pointer;
@@ -29,19 +24,8 @@ text-align: left;
 border-radius: 5px;
 align-items: center;
 `
-// const DropdownImg = styled.img`
-// -webkit-transform: rotate(-180deg);
-// -moz-transform: rotate(-180deg);
-// -ms-transform: rotate(-180deg);
-// -o-transform: rotate(-180deg);
-// transform: rotate(-180deg);
-// `
+
 const DropdownText = styled.div`
-    -webkit-transition: all 500ms ease;
-    -moz-transition: all 500ms ease;
-    -ms-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-    transition: all 500ms ease;
     padding: 2rem;
     margin-top: 0px;
     overflow: hidden;
@@ -64,8 +48,6 @@ export default function Dropdown({title, text}) {
         top: "10px",
        }
     const smoothTransition = {
-        // fontSize: !isOpen ? "24px" : "0px", 
-        // height: !isOpen ? "max-content" : "0px", 
         transition: "all 1500ms ease",
         padding: "2rem",
         marginTop: "0px",
@@ -87,11 +69,9 @@ export default function Dropdown({title, text}) {
                 <DropdownTitle onClick={() => setIsOpen(!isOpen)} >
                 {title}
                     {isOpen? (
-                        // <img src={Chevron} alt="Chevron"/>
                         <Chevron style={styledChevron}/>
                         ) : (
                         <Chevron style={styledChevron} />
-                        // <DropdownImg src={Chevron} alt="Chevron" />
                     )}
                 </DropdownTitle>
                 {isOpen && (

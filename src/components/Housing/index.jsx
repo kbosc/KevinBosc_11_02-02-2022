@@ -2,28 +2,13 @@ import { useParams, Navigate } from "react-router-dom";
 import { useFetch } from '../../utils/hooks'
 import Carousel from "../Carousel";
 import Sheet from "../Sheet";
-// import { useNavigate } from 'react-router-dom';
 
-// import colors from "../../utils/style/colors";
-// import styled from 'styled-components'
-
-
-// const Carroussel = styled.div`
-// background-color: ${colors.primary};
-// border-radius: 25px;
-// margin: 2rem 5rem;
-// max-width: 100%;
-// height: 415px;
-// `
 export default function Housing(props) {
     const housingId = useParams()
     if (!housingId) {
         // navigate('/*');
         <Navigate to="/*" replace={true} />
       }
-    // console.log(housingId.id);
-    // const housingIdString = JSON.stringify(housingId.id)
-    // console.log(housingIdString);
     const { data, isLoading, error } = useFetch(
         `http://localhost:3000/data.json`
     )
@@ -34,8 +19,7 @@ export default function Housing(props) {
         return <div>Attente du chargement</div>
     } 
     return (
-        <div>
-            {console.log(data)}        
+        <div>     
             {data.map((datas, index) => 
                 (datas.id === housingId.id &&
                     <div

@@ -27,8 +27,20 @@ const Carrousel = styled.section`
     position: relative;
     max-width: 100%;
     margin: 2rem 5rem;
-    max-height: 415px;
+    height: 415px;
     overflow: hidden;
+    .chevron-hover {
+        fill: white;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: 46px;
+        height: 80px;
+        & :hover {
+            fill: ${colors.primary};
+            transition: all 300ms ease;
+        }
+    }
 `
 const CarrouselImg = styled.img`
     max-height: 100%;
@@ -37,47 +49,38 @@ const CarrouselImg = styled.img`
     flex: none;
     object-fit: cover;
     border-radius: 25px;
-
-    //   object-fit: cover;
+    // transform: scale(-30);
+    // opacity: 0.5;
+    // transition: all 1500ms ease;
 `;
-
 const CarrouselCounter = styled.span`
-    position: absolute;
-    background-color: yellow;
-    right: 50%;
+position: absolute;
+left: 50%;
+bottom: 25px;
+transform: translate(-50%, -50%);
+margin: 0 auto;
+color: white;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 26px;
+letter-spacing: 0em;
+text-align: center;
+
 `;
-
 const styledChevronLeft = {
-    transition: 'all 300ms ease',
-    fill: colors.primary,
-    cursor: "pointer",
-    position: "absolute",
-    top: "50%",
-    left: "20px",
     transform: "rotate(90deg)",
-    width: "46px",
-    height: "80px"
+    left: "20px",
 }
-
 const styledChevronRight = {
-    transition: 'all 300ms ease',
-    fill: colors.primary,
-    cursor: "pointer",
-    position: "absolute",
-    top: "50%",
+
     right: "20px",
     transform: "rotate(270deg)",
-    width: "46px",
-    height: "80px"
    }
+
 export default function Carousel(cover) {
-    // console.log(cover.pictures);
-    // console.log(pictures);
     const [current, setCurrent] = useState(0);
     const length = cover.pictures.length;
-    console.log(length + 1);
-    console.log(current + 1)
-    
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1);
     };
@@ -87,11 +90,9 @@ export default function Carousel(cover) {
 
     return (
         <Carrousel>
-            <ChevronLeft style={styledChevronLeft} onClick={prevSlide} />
-            <ChevronRight style={styledChevronRight} onClick={nextSlide}/>
-            {/* <ChevronLeft fill={colors.primary} stroke="red" cursor="pointer" transform="rotate(90deg)" onClick={prevSlide} /> */}
-            {/* <ChevronRight fill={colors.primary} stroke="red" cursor="pointer" onClick={nextSlide} /> */}
-            <CarrouselCounter>{current + 1}/{length + 1}</CarrouselCounter>
+            <ChevronLeft className="chevron-hover" style={styledChevronLeft} onClick={prevSlide} />
+            <ChevronRight className="chevron-hover" style={styledChevronRight} onClick={nextSlide}/>
+            <CarrouselCounter>{current + 1}/{length}</CarrouselCounter>
             {cover.pictures.map((slide, index) => {
                 return (
                     <div key={index}>
@@ -104,5 +105,34 @@ export default function Carousel(cover) {
         </Carrousel>
     );
 }
-// {/* <ChevronLeft img={Chevron} alt="chevron pour changer d'image" onClick={prevSlide} />
-// <ChevronRight img={Chevron} alt="chevron pour changer d'image" onClick={nextSlide} /> */}
+// return (
+//     <Carrousel>
+//         {length === 0 ? (
+//             <CarrouselCounter>{current + 1}/{length + 1}</CarrouselCounter>
+//             {cover.pictures.map((slide, index) => {
+//                 return (
+//                     <div key={index}>
+//                     {index === current && (
+//                         <CarrouselImg src={slide} alt="" />
+//                         )}
+//                     </div>
+//                 );
+//             })}
+
+//         ) : (
+                
+//         <ChevronLeft className="chevron-hover" style={styledChevronLeft} onClick={prevSlide} />
+//         <ChevronRight className="chevron-hover" style={styledChevronRight} onClick={nextSlide}/>
+//         <CarrouselCounter>{current + 1}/{length + 1}</CarrouselCounter>
+//         {cover.pictures.map((slide, index) => {
+//             return (
+//                 <div key={index}>
+//                 {index === current && (
+//                     <CarrouselImg src={slide} alt="" />
+//                     )}
+//                 </div>
+//             );
+//         })}
+//         )}
+//     </Carrousel>
+// );
