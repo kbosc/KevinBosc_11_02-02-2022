@@ -63,7 +63,9 @@ padding: 50px 50px;
 max-width: 100%;
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-grid-gap: 10px;
+// grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+// grid-gap: 10px;
+grid-gap: 3rem;
 justify-items: center;
 @media (max-width: 850px) {
   padding: 0;

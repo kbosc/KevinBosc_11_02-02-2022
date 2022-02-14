@@ -13,7 +13,7 @@ justify-content: space-between;
 }
     `
 const HousingHeaderLeft = styled.div`
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     width: 70%;
 }
 @media (max-width: 425px) {
@@ -70,10 +70,10 @@ ul{
         margin-right: 10px;
         padding: 4px 2rem;
         white-space: nowrap;
+        margin-top: 0.5rem;
         @media (max-width: 768px) {
             font-size: 13px;
             line-height: 13px;
-            margin-top: 0.5rem;
         }
         @media (max-width: 425px) {
             font-size: 10px;
@@ -156,23 +156,6 @@ justify-content: space-between;
 }
     `
 const DropdownContainerLeft = styled.div`
-// div {
-//     h3 {
-//         height: 52px;
-//         width: 582px;
-//         left: 0px;
-//         top: 0px;
-//         border-radius: 10px;
-//         img {
-//             height: 26px;
-//             width: 15px;
-//             left: 29px;
-//             top: 7px;
-//             border-radius: 0px;
-
-//         }
-//     }
-// }
 width: 40%;
 @media (max-width: 425px) {
     width: 100%;

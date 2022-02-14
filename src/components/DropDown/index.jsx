@@ -53,6 +53,7 @@ border-radius: 0 0 5px 5px;
     @media (max-width: 425px) {
         font-size: 12px;
         line-height: 17px;
+        padding: 1rem;
     } 
 `
 export default function Dropdown({title, text}) {

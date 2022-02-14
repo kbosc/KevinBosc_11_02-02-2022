@@ -24,6 +24,10 @@ const Carrousel = styled.section`
         top: 45%;
         width: 46px;
         height: 80px;
+        @media (max-width: 425px) {
+            height: 25px;
+            width: 15px;
+        }
         & :hover {
             fill: ${colors.primary};
             transition: all 300ms ease;
@@ -54,14 +58,15 @@ font-weight: 500;
 line-height: 26px;
 letter-spacing: 0em;
 text-align: center;
-
+@media (max-width: 425px) {
+    opacity: 0;
+}
 `;
 const styledChevronLeft = {
     transform: "rotate(90deg)",
     left: "20px",
 }
 const styledChevronRight = {
-
     right: "20px",
     transform: "rotate(270deg)",
    }
