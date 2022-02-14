@@ -2,7 +2,14 @@ import { useParams, Navigate } from "react-router-dom";
 import { useFetch } from '../../utils/hooks'
 import Carousel from "../Carousel";
 import Sheet from "../Sheet";
+import styled from 'styled-components'
 
+const Main = styled.main`
+padding: 2rem 5rem;
+@media (max-width: 768px) {
+  padding: 1rem 2rem;
+  }
+`
 export default function Housing(props) {
     const housingId = useParams()
     if (!housingId) {
@@ -19,7 +26,7 @@ export default function Housing(props) {
         return <div>Attente du chargement</div>
     } 
     return (
-        <div>     
+        <Main>     
             {data.map((datas, index) => 
                 (datas.id === housingId.id &&
                     <div
@@ -39,6 +46,6 @@ export default function Housing(props) {
                         />         
                     </div>
                 ))}
-        </div>
+        </Main>
     )      
 }

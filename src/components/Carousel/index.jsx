@@ -6,34 +6,22 @@ import { ReactComponent as ChevronLeft } from '../../assets/chevron.svg';
 import { ReactComponent as ChevronRight } from '../../assets/chevron.svg';
 
 
-// const CarrouselPicture = styled.img`
-// // max-width: 100%;
-// // height: 415px;
-// // object-fit: cover;
-// border-radius: 25px;
 
-// flex: none;
-// object-fit: cover;
-// height: 100%;
-// width: 100%;
-// transform: translateX(0px);
-// transition-property: all;
-// transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-// transition-duration: 150ms;
-// transition-duration: 500ms;
-// `
 
 const Carrousel = styled.section`
     position: relative;
-    max-width: 100%;
-    margin: 2rem 5rem;
     height: 415px;
-    overflow: hidden;
+    margin-bottom: 2rem;
+    div {
+        height: 415px;
+        // permet le click des dropdowns
+        pointer-events: none;
+    }
     .chevron-hover {
         fill: white;
         cursor: pointer;
         position: absolute;
-        top: 50%;
+        top: 45%;
         width: 46px;
         height: 80px;
         & :hover {
@@ -41,24 +29,24 @@ const Carrousel = styled.section`
             transition: all 300ms ease;
         }
     }
+    @media (max-width: 425px) {
+        height: 255px;  
+    }
 `
 const CarrouselImg = styled.img`
-    max-height: 100%;
-    box-sizing: content-box;
+    position: absolute;
+    top: 0px;
     width: 100%;
-    flex: none;
-    object-fit: cover;
     border-radius: 25px;
-    // transform: scale(-30);
-    // opacity: 0.5;
-    // transition: all 1500ms ease;
+    height: 100%;
+    object-fit: cover;
+    
 `;
 const CarrouselCounter = styled.span`
 position: absolute;
 left: 50%;
 bottom: 25px;
 transform: translate(-50%, -50%);
-margin: 0 auto;
 color: white;
 font-size: 18px;
 font-style: normal;
@@ -90,21 +78,22 @@ export default function Carousel(cover) {
 
     return (
         <Carrousel>
-            <ChevronLeft className="chevron-hover" style={styledChevronLeft} onClick={prevSlide} />
-            <ChevronRight className="chevron-hover" style={styledChevronRight} onClick={nextSlide}/>
-            <CarrouselCounter>{current + 1}/{length}</CarrouselCounter>
             {cover.pictures.map((slide, index) => {
                 return (
                     <div key={index}>
                     {index === current && (
-                        <CarrouselImg src={slide} alt="" />
+                        <CarrouselImg key={index} src={slide} alt="" />
                         )}
                     </div>
                 );
             })}
+            <CarrouselCounter>{current + 1}/{length}</CarrouselCounter>
+            <ChevronLeft className="chevron-hover" style={styledChevronLeft} onClick={prevSlide} />
+            <ChevronRight className="chevron-hover" style={styledChevronRight} onClick={nextSlide}/>
         </Carrousel>
     );
 }
+
 // return (
 //     <Carrousel>
 //         {length === 0 ? (

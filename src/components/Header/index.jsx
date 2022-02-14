@@ -9,25 +9,57 @@ import { ReactComponent as Logo } from "../../assets/Logo.svg";
 // width: inherit;
 // `
 const ContainerHeader = styled.header`
+width: 100%;
 display: flex;
 justify-content: space-between;
-margin: 2rem 5rem;
+align-items: center;
+padding: 2rem 5rem;
+@media (max-width: 768px) {
+  padding: 1rem 2rem;
+  }
+.logo-header {
+  width: 214px;
+  @media (max-width: 630px) {
+     width: 170px;
+  }
+  @media (max-width: 580px) {
+     width: 145px;
+  }
+}
 `
 const NavBar = styled.nav`
-width: 20%;
 font-weight: 500;
 font-size: 24px;
 display: flex;
 justify-content: space-between;
-// color: ${colors.primary};
+justify-content: flex-end;;
+@media (max-width: 630px) {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+}
+@media (max-width: 580px) {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+}
 `
 
   const LinkWithActive = styled(Link)`
+  // padding: 15px 20px;
   color: ${colors.primary};
   text-decoration: none;
   display: inline-block;
-  padding: 15px 20px;
   position: relative;
+  white-space: nowrap;
+  margin-left: 4rem;
+  @media (max-width: 630px) {
+    margin-left: 2rem;
+  }
   &:after {    
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
@@ -48,8 +80,7 @@ justify-content: space-between;
 export default function Header(props) {
     return (
         <ContainerHeader>
-          <Logo width="210px" fill={colors.primary} stroke={colors.primary}/>
-          {/* <LogoKasa src={Logo} alt="Logo Kasa" /> */}
+          <Logo className="logo-header" fill={colors.primary} stroke={colors.primary}/>
           <NavBar>
             <LinkWithActive to="/" >Accueil</LinkWithActive>
             <LinkWithActive to="/about" >A Propos</LinkWithActive>

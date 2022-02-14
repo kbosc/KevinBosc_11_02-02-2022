@@ -7,40 +7,71 @@ import { Link } from "react-router-dom";
 import colors from "../../utils/style/colors";
 
 
-const HeroHeader = styled.div`
-    position: relative;
-    text-align: center;
-    color: white;
-    margin: 2rem 5rem;
-    `
-    
-    const BannerImg = styled.img`
-    border-radius: 25px;
-    filter: brightness(50%);
-    object-fit: cover;
-    width: 100%;
-    height: 223px;
-`
 
+const Main = styled.main`
+text-align: center;
+color: white;
+padding: 2rem 5rem;
+@media (max-width: 768px) {
+  padding: 1rem 2rem;
+  }
+`
+const HeroHeader = styled.div`
+width: 100%;
+background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${HomeImg});
+background-size: cover;
+background-repeat: no-repeat;
+height: 223px;
+border-radius: 25px;
+margin-bottom: 2rem;
+display: flex;
+align-items: center;
+justify-content: center;
+@media (max-width: 900px) {
+  justify-content: flex-start
+}
+@media (max-width: 600px) {
+  height: 111px;
+}
+`
 const BannerTitle = styled.h1`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: 500;
-    font-size: 48px;
+font-weight: 500;
+font-size: 48px;
+Line height: 68px;
+text-align: left;
+@media (max-width: 900px) {
+  font-size: 32px;
+  line-height: 29px;
+  letter-spacing: 0em;
+  padding-left: 2rem;
+}
+@media (max-width: 500px) {
+  font-size: 24px;
+  line-height: 24px;
+}
+span {
+  @media (max-width: 1410px) {
+    display: block;
+  }
+}
 `
 
 const CardContainer = styled.div`
 background-color: ${colors.secondary};
 border-radius: 25px;
-margin: 2rem 5rem;
 padding: 50px 50px;
 max-width: 100%;
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 grid-gap: 10px;
 justify-items: center;
+@media (max-width: 850px) {
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  width: 100%;
+}
 `
 
 export default function Home(props) {
@@ -52,10 +83,10 @@ export default function Home(props) {
   }
   // console.log(data);
     return (
-        <div>
+        <Main>
             <HeroHeader>
-            <BannerImg src={HomeImg} alt="paysage brumeux de falaise" />
-            <BannerTitle>Chez vous, partout et ailleurs</BannerTitle>
+            {/* <BannerImg src={HomeImg} alt="paysage brumeux de falaise" /> */}
+            <BannerTitle>Chez vous, <span>partout et ailleurs</span> </BannerTitle>
             </HeroHeader>
 			{isLoading ? (
 				<div>Attente du chargement</div>
@@ -73,6 +104,6 @@ export default function Home(props) {
           ))}
             </CardContainer>
 			)}
-        </div>
+        </Main>
     );
 }

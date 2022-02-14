@@ -2,8 +2,13 @@ import styled from 'styled-components'
 import AboutImg from "../../assets/AboutImg.png"
 import Dropdown from "../../components/DropDown";
 
+const Main = styled.main`
+padding: 2rem 5rem;
+@media (max-width: 768px) {
+    padding: 1rem 2rem;
+}
+`
 const HeroHeader = styled.div`
-margin: 2rem 5rem;
 `
 
 const BannerImg = styled.img`
@@ -16,17 +21,15 @@ height: 223px;
 const DropdownContainer = styled.div`
 width: 80%;
 margin: 0 auto;
--webkit-transition: all 500ms ease;
--moz-transition: all 500ms ease;
--ms-transition: all 500ms ease;
--o-transition: all 500ms ease;
-transition: all 500ms ease;
+@media (max-width: 768px) {
+    width: 100%;
+}
 `
 
 export default function About(props) {
     
     return (
-        <div>
+        <Main>
             <HeroHeader>
                 <BannerImg src={AboutImg} alt="paysage brumeux de montagne" />
             </HeroHeader>
@@ -39,10 +42,15 @@ export default function About(props) {
                     />
                 ))}        
             </DropdownContainer>
-        </div>
+        </Main>
     );
 }
 
+Dropdown.defaultProps = {
+    title: 'lorem ipsum',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+
+  }
 
 const dataAbout = [
     {

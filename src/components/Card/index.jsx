@@ -10,35 +10,41 @@ import DefaultPicture from '../../assets/BackgroundSmart.png'
 
 
 const CardWrapper = styled.div`
-position: relative;
-width: 340px;
+// width: 340px;
+height: 340px;
+width: 100%;
+background-size: cover;
+background-repeat: no-repeat;
+border-radius: 10px;
+color: white;
+display: flex;
+justify-content: flex-start;
+align-items: flex-end;
+@media (max-width: 950px) {
+  // width: 630px;
+}
+@media (max-width: 600px) {
+  height: 250pxpx;
+  
+}
 &:hover {
-    cursor: pointer;
+  cursor: pointer;
   }
 `
-const CardImg = styled.img`
-border-radius: 10px;
-width: 340px;
-height: 340px;
-object-fit: cover;
-`
 const CardTitle = styled.div`
-position: absolute;
-bottom: 20px;
-left: 20px;
-color: white
+text-align: left;
+width: 60%;
+margin: 1rem;
 `
-// const linkStyle = {  
-//     color: "green",
-//     textDecoration: "none",
-//     width: "340px",
-//     height: "340px",
-//   };
 
 export default function Card({ label, title, cover }) {
     return (
-      <CardWrapper>
-        <CardImg src={cover} alt={label} />
+      <CardWrapper style={{ 
+        backgroundImage: `url(${cover})` 
+      }}
+      title={label}
+      >
+        {/* <CardImg src={cover} alt={label} /> */}
         <CardTitle >{title}</CardTitle>
       </CardWrapper>
     )
@@ -51,7 +57,7 @@ export default function Card({ label, title, cover }) {
   }
   
   Card.defaultProps = {
-    label: '',
-    title: '',
+    label: 'lorem ipsum',
+    title: 'lorem ipsum',
     cover: DefaultPicture,
   }
