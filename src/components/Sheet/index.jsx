@@ -169,9 +169,6 @@ width: 40%;
 `
 
 export default function Sheet({title, location, tags, host, ratings, equipments, descriptions}) {
-    //   console.log(typeof ratings);
-    //   console.log(arrayOfStars);
-    //   console.log(parseInt(ratings));
     return (
         <aside>
             <HousingHeader>

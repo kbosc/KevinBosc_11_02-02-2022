@@ -1,7 +1,7 @@
 import { useParams, Navigate } from "react-router-dom";
 import { useFetch } from '../../utils/hooks'
-import Carousel from "../Carousel";
-import Sheet from "../Sheet";
+import Carousel from "../../components/Carousel";
+import Sheet from "../../components/Sheet";
 import styled from 'styled-components'
 
 const Main = styled.main`
@@ -12,27 +12,32 @@ padding: 2rem 5rem;
 `
 export default function Housing(props) {
     const housingId = useParams()
-    if (!housingId) {
-        // navigate('/*');
-        <Navigate to="/*" replace={true} />
-      }
     const { data, isLoading, error } = useFetch(
         `http://localhost:3000/data.json`
-    )
-    if (error) {
-        return <span>Oups, il y a une erreur</span>
-    }    
-    if(isLoading) {
-        return <div>Attente du chargement</div>
-    } 
+        )
+        if (error) {
+            return <span>Oups, il y a une erreur</span>
+        }    
+        if(isLoading) {
+            return <div>Attente du chargement</div>
+        }
+
+    
+        const exists = data.find( (el) => {
+            return el.id === housingId.id
+        } );
+        
+        if (exists === undefined) {
+            return <Navigate to="/*" />
+        }
+
     return (
         <Main>     
             {data.map((datas, index) => 
-                (datas.id === housingId.id &&
+                (datas.id === housingId.id && 
                     <div
                     key={`${datas.title}-${index}`}>
                         <Carousel 
-                        cover={datas.cover}
                         pictures={datas.pictures}
                         />
                         <Sheet

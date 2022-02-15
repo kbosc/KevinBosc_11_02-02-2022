@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
-// import  Logo  from "../../assets/Logo.svg"
 import styled from 'styled-components'
 import colors from "../../utils/style/colors";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 
-// const LogoKasa = styled.img`
-// height: 68px;
-// width: inherit;
-// `
+
 const ContainerHeader = styled.header`
 width: 100%;
 display: flex;

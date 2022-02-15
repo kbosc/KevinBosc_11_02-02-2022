@@ -3,14 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components';
 import DefaultPicture from '../../assets/BackgroundSmart.png'
 
-// import { useEffect } from 'react';
-// import { useState } from 'react/cjs/react.production.min';
-// import { Link, Outlet } from 'react-router-dom';
-// import BackgroundCard from '../../assets/BackgroundSmart.png';
-
-
 const CardWrapper = styled.div`
-// width: 340px;
 height: 340px;
 width: 100%;
 background-size: cover;
@@ -20,12 +13,8 @@ color: white;
 display: flex;
 justify-content: flex-start;
 align-items: flex-end;
-@media (max-width: 950px) {
-  // width: 630px;
-}
 @media (max-width: 600px) {
-  height: 250pxpx;
-  
+  height: 255px;
 }
 &:hover {
   cursor: pointer;
@@ -44,7 +33,6 @@ export default function Card({ label, title, cover }) {
       }}
       title={label}
       >
-        {/* <CardImg src={cover} alt={label} /> */}
         <CardTitle >{title}</CardTitle>
       </CardWrapper>
     )

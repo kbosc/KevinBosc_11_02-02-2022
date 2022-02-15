@@ -47,7 +47,6 @@ padding-top: 10rem;
     font-size: 14px;
     line-height: 20px;
 }
-}
 `
 
 export default function Error(props) {

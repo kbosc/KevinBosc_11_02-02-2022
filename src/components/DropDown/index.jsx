@@ -64,21 +64,6 @@ export default function Dropdown({title, text}) {
         fill: "white",
         top: "10px",
        }
-    // const smoothTransition = {
-    //     transition: "all 1500ms ease",
-    //     padding: "2rem",
-    //     marginTop: "0px",
-    //     overflow: "hidden",
-    //     background: Object.values(colors.secondary),
-    //     color: Object.values(colors.primary),
-    //     fontSize: "24px",
-    //     fontStyle: "normal",
-    //     fontWeight: "400",
-    //     lineHeight: "34px",
-    //     letterSpacing: "0em",
-    //     textAlign: "left",
-    //     borderRadius: "0 0 5px 5px",
-    // }
     
     return (
         <div>
@@ -93,7 +78,6 @@ export default function Dropdown({title, text}) {
                 </DropdownTitle>
                 {isOpen && (
                 <DropdownText>
-                {/* <DropdownText style={smoothTransition}> */}
                     {text}
                 </DropdownText>
                 )}
@@ -102,11 +86,6 @@ export default function Dropdown({title, text}) {
     );
 }
 
-// Dropdown.propTypes = {
-//     title: PropTypes.string.isRequired,
-//     text: PropTypes.string.isRequired,
-//   }
-  
   Dropdown.defaultProps = {
       title: 'Titre',
       text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',

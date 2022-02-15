@@ -1,22 +1,13 @@
 import styled from 'styled-components'
 import AboutImg from "../../assets/AboutImg.png"
 import Dropdown from "../../components/DropDown";
+import Hero from "../../components/Hero"
 
 const Main = styled.main`
 padding: 2rem 5rem;
 @media (max-width: 768px) {
     padding: 1rem 2rem;
 }
-`
-const HeroHeader = styled.div`
-`
-
-const BannerImg = styled.img`
-border-radius: 25px;
-filter: brightness(50%);
-object-fit: cover;
-width: 100%;
-height: 223px;
 `
 const DropdownContainer = styled.div`
 width: 80%;
@@ -25,14 +16,13 @@ margin: 0 auto;
     width: 100%;
 }
 `
-
 export default function About(props) {
     
     return (
         <Main>
-            <HeroHeader>
-                <BannerImg src={AboutImg} alt="paysage brumeux de montagne" />
-            </HeroHeader>
+            <Hero
+          background={AboutImg}
+           />
             <DropdownContainer >
                 {dataAbout.map((content, index) => (
                     <Dropdown 

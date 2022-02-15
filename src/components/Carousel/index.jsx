@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import colors from "../../utils/style/colors";
 import styled from 'styled-components';
-
 import { ReactComponent as ChevronLeft } from '../../assets/chevron.svg';
 import { ReactComponent as ChevronRight } from '../../assets/chevron.svg';
 
@@ -71,9 +70,10 @@ const styledChevronRight = {
     transform: "rotate(270deg)",
    }
 
-export default function Carousel(cover) {
+export default function Carousel({pictures}) {
+
     const [current, setCurrent] = useState(0);
-    const length = cover.pictures.length;
+    const length = pictures.length;
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1);
     };
@@ -83,7 +83,7 @@ export default function Carousel(cover) {
 
     return (
         <Carrousel>
-            {cover.pictures.map((slide, index) => {
+            {pictures.map((slide, index) => {
                 return (
                     <div key={index}>
                     {index === current && (
@@ -93,40 +93,8 @@ export default function Carousel(cover) {
                 );
             })}
             <CarrouselCounter>{current + 1}/{length}</CarrouselCounter>
-            <ChevronLeft className="chevron-hover" style={styledChevronLeft} onClick={prevSlide} />
-            <ChevronRight className="chevron-hover" style={styledChevronRight} onClick={nextSlide}/>
+            {length > 1 && <ChevronLeft className="chevron-hover" style={styledChevronLeft} onClick={prevSlide} />}
+            {length > 1 && <ChevronRight className="chevron-hover" style={styledChevronRight} onClick={nextSlide}/>}
         </Carrousel>
     );
 }
-
-// return (
-//     <Carrousel>
-//         {length === 0 ? (
-//             <CarrouselCounter>{current + 1}/{length + 1}</CarrouselCounter>
-//             {cover.pictures.map((slide, index) => {
-//                 return (
-//                     <div key={index}>
-//                     {index === current && (
-//                         <CarrouselImg src={slide} alt="" />
-//                         )}
-//                     </div>
-//                 );
-//             })}
-
-//         ) : (
-                
-//         <ChevronLeft className="chevron-hover" style={styledChevronLeft} onClick={prevSlide} />
-//         <ChevronRight className="chevron-hover" style={styledChevronRight} onClick={nextSlide}/>
-//         <CarrouselCounter>{current + 1}/{length + 1}</CarrouselCounter>
-//         {cover.pictures.map((slide, index) => {
-//             return (
-//                 <div key={index}>
-//                 {index === current && (
-//                     <CarrouselImg src={slide} alt="" />
-//                     )}
-//                 </div>
-//             );
-//         })}
-//         )}
-//     </Carrousel>
-// );
