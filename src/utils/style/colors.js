@@ -5,7 +5,3 @@ const colors = {
   }
   
   export default colors
-  
-  // primary : #FF6060
-// secondary : #F6F6F6
-// tertiary : #E5E5E5 ?

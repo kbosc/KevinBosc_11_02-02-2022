@@ -68,7 +68,7 @@ const styledChevronLeft = {
 const styledChevronRight = {
     right: "20px",
     transform: "rotate(270deg)",
-   }
+}
 
 export default function Carousel({pictures}) {
 
